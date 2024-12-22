@@ -1,0 +1,80 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  width: 15rem;
+  max-height: 4.4rem;
+  border: 1px solid var(--rose-400);
+  border-radius: 3rem;
+  padding: 1.2rem;
+  font-size: 1.4rem;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  letter-spacing: 0.03rem;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button--default {
+  background-color: #fff;
+  font-weight: 500;
+}
+
+.button--default:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.button--confirm {
+  background-color: var(--red);
+  border: 1px solid var(--red);
+  color: var(--rose-50);
+  font-weight: 500;
+}
+
+.button--confirm:hover {
+  filter: brightness(0.8);
+}
+
+.button--changeQnty {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--red);
+  border: 0.1rem solid var(--red);
+  color: var(--rose-50);
+}
+
+.button--changeQnty:hover {
+  cursor: default;
+  color: var(--rose-50);
+}
+
+.buttonToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  padding: 0.3rem;
+  background-color: transparent;
+  border-radius: 1rem;
+  border: 1px solid var(--rose-50);
+}
+
+.buttonToggle:hover {
+  cursor: pointer;
+  background-color: var(--rose-50);
+}
+
+.buttonToggle svg {
+  fill: #fff;
+}
+
+.buttonToggle:hover svg {
+  fill: var(--red);
+}
