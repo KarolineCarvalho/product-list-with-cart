@@ -6,8 +6,63 @@
   width: 100%;
   font-size: 1.6rem;
   font-weight: bold;
-  padding-bottom: 2rem;
+  padding: 1.6rem 0 2rem;
   border-bottom: 1px solid var(--rose-100);
+}
+
+.listItem--confirmation {
+  position: relative;
+  width: auto;
+  justify-content: flex-start;
+  padding: 1.4rem 0;
+  column-gap: 1rem;
+}
+
+.listItem__thumbnail {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 0.8rem;
+  margin-right: 0.4rem;
+}
+
+.name {
+  color: var(--rose-900);
+  margin-bottom: 1rem;
+}
+
+.name--confirmation {
+  font-size: 1.5rem;
+  flex: 1;
+  max-width: 17rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.priceContaier {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.8rem;
+}
+
+.priceContaier__qty {
+  color: var(--red);
+  font-weight: bold;
+  margin-right: 0.8rem;
+}
+
+.priceContaier__price {
+  color: var(--rose-300);
+}
+
+.priceContaier__total {
+  color: var(--rose-500);
+}
+
+.priceContaier__total--confirmation {
+  position: absolute;
+  right: 0;
+  color: var(--rose-900);
 }
 
 .removeItemBtn {
@@ -37,26 +92,8 @@
   fill: var(--rose-900);
 }
 
-.name {
-  color: var(--rose-900);
-  margin-bottom: 1rem;
-}
-
-.priceContaier {
-  display: flex;
-  column-gap: 0.8rem;
-}
-
-.priceContaier__qnty {
-  color: var(--red);
-  font-weight: bold;
-  margin-right: 0.8rem;
-}
-
-.priceContaier__price {
-  color: var(--rose-300);
-}
-
-.priceContaier__total {
-  color: var(--rose-500);
+@media (min-width: 425px) {
+  .name--confirmation {
+    max-width: unset;
+  }
 }

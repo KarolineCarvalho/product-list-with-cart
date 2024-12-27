@@ -1,24 +1,82 @@
-import React from "react";
 import styles from "./cartStyles.module.css";
 import ListItem from "../ListItem";
+import SvgComponent from "../SvgComponent";
+import { ListItemProps, useCartStore } from "../../store";
+import ButtonComponent from "../ButtonComponent";
 
-export interface CartProps {
-  itemsQnty: number;
+export const calculateTotalPrice = (items: ListItemProps[]) => {
+  return items.reduce(
+    (total, item) => total + item.price * (item.quantity ?? 0),
+    0
+  );
+};
+
+export const calculateTotalItems = (items: ListItemProps[]) => {
+  return items.reduce((total, item) => total + (item.quantity ?? 0), 0);
+};
+
+export function OrderTotal({ items }: { items: ListItemProps[] }) {
+  return (
+    <>
+      <div className={styles.cart__totalContainer}>
+        <p className={styles.cart__totalText}>Order Total</p>
+        <p className={styles.cart__totalValue}>{`$${calculateTotalPrice(
+          items
+        ).toFixed(2)}`}</p>
+      </div>
+    </>
+  );
 }
 
-function Card({ itemsQnty }: CartProps) {
-  // const cardTopClassList = [styles.card_top];
-  // if (hasQuantity) cardTopClassList.push(styles[`card_top--hasQuantity`]);
+function Card({ openModal }: { openModal: () => void }) {
+  const { items } = useCartStore();
 
   return (
     <div className={styles.cart}>
-      <h2>Your Cart {itemsQnty}</h2>
-      <ListItem
-        name={"Classic Tiramissu"}
-        quantity={1}
-        price={5.5}
-        total={5.5}
-      />
+      <h2 className={styles.cart__title}>
+        Your Cart ({calculateTotalItems(items)})
+      </h2>
+
+      {!items.length && (
+        <div className={styles.cart__empty}>
+          <SvgComponent
+            icon="illustration_empty_cart"
+            alt="Empty cart illustration"
+          />
+          <p className={styles.cart__emptyText}>
+            Your added items will appear here
+          </p>
+        </div>
+      )}
+
+      {!!items.length && (
+        <>
+          {items.map((item) => {
+            return (
+              <ListItem
+                key={item.id}
+                id={item.id}
+                name={item.name}
+                quantity={item.quantity}
+                price={item.price}
+              />
+            );
+          })}
+
+          <OrderTotal items={items} />
+          <div className={styles.cart__carbonNeutral}>
+            <SvgComponent icon="carbon_neutral" alt="Carbon Neutral" />
+            <p>
+              This is a <strong>carbon-neutral</strong> delivery
+            </p>
+          </div>
+          <ButtonComponent
+            buttonText="Confirm Order"
+            variant="confirm"
+            onClick={openModal}
+          />
+        </>
+      )}
     </div>
   );
 }

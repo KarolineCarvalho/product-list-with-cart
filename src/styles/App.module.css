@@ -1,0 +1,56 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 3.4rem;
+  column-gap: 3.2rem;
+  width: 100%;
+  padding: 3.4rem 1.6rem 2.4rem;
+  background-color: var(--rose-50);
+}
+
+.title {
+  color: var(--rose-900);
+  font-size: 3.5rem;
+  font-weight: bold;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto 4rem;
+}
+
+.dessertsContainer {
+  display: grid;
+  justify-content: center;
+  max-width: 800px;
+  width: auto;
+  margin: 0 auto;
+  row-gap: 3rem;
+  column-gap: 2.4rem;
+  grid-template-columns: 33rem;
+}
+
+@media (min-width: 550px) {
+  .dessertsContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .pageContainer {
+    padding: 9.8rem 1.6rem 9rem;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .dessertsContainer {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media (min-width: 1024px) {
+  .dessertsContainer {
+    row-gap: 3rem;
+    column-gap: 2.4rem;
+    grid-template-columns: repeat(3, minmax(auto, 30rem));
+  }
+}

@@ -13,7 +13,7 @@ type Story = StoryObj<typeof ButtonComponent>;
 export const SetQuantity: Story = {
   args: {
     buttonText: "4",
-    isChangeQnty: true,
+    isChangeQty: true,
     type: "default",
   },
 };

@@ -34,13 +34,14 @@
   border: 1px solid var(--red);
   color: var(--rose-50);
   font-weight: 500;
+  width: 100%;
 }
 
 .button--confirm:hover {
   filter: brightness(0.8);
 }
 
-.button--changeQnty {
+.button--changeQty {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,7 +50,7 @@
   color: var(--rose-50);
 }
 
-.button--changeQnty:hover {
+.button--changeQty:hover {
   cursor: default;
   color: var(--rose-50);
 }

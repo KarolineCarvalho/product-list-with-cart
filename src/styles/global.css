@@ -9,12 +9,6 @@
   --rose-900: hsl(14, 65%, 9%);
 }
 
-@font-face {
-  font-family: "Red Hat Text";
-  src: url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap")
-    format("woff2");
-}
-
 /* Box sizing rules */
 *,
 *::before,

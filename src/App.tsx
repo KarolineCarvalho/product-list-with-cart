@@ -1,36 +1,36 @@
 import Card from "./components/Card";
 import Cart from "./components/Cart";
-import "./styles/global.css";
-import "./styles/App.css";
+import styles from "./styles/App.module.css";
 import { data } from "./data/data";
+import { useState } from "react";
+import Modal from "./components/Modal/Modal";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
-    <div className="pageContainer">
-      <div className="contentContainer">
-        <h1 className="title">Desserts</h1>
-        <div className="dessertsContainer">
+    <div className={styles.pageContainer}>
+      <div className={styles.contentContainer}>
+        <h1 className={styles.title}>Desserts</h1>
+        <div className={styles.dessertsContainer}>
           {data.map((item) => {
             return (
               <Card
                 key={item.name}
                 CardImage={{ image: item.image, altText: `${item.name}` }}
                 Button={{
-                  buttonText: "Add to Cart",
-                  isChangeQnty: false,
-                  type: "default",
+                  variant: "default",
                 }}
-                itemInfo={{
-                  category: item.category,
-                  name: item.name,
-                  price: item.price,
-                }}
+                itemInfo={{ ...item, thumbnail: item.image.thumbnail }}
               />
             );
           })}
         </div>
       </div>
-      <Cart itemsQnty={2} />
+      <Cart openModal={openModal} />
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }
