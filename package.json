@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "build-storybook -c .storybook -o storybook-static"
   },
   "dependencies": {
     "@storybook/addon-viewport": "^8.4.7",
