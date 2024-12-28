@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react";
 import styles from "./modalStyles.module.css";
-import { useCartStore } from "../../store";
+import { ListItemProps, useCartStore } from "../../store";
 import ListItem from "../ListItem";
 import SvgComponent from "../SvgComponent";
 import { OrderTotal } from "../Cart";
 import ButtonComponent from "../ButtonComponent";
 
 interface ModalProps {
+  items: ListItemProps[];
   isOpen: boolean;
   onClose: () => void;
 }
 
-const Modal = ({ isOpen, onClose }: ModalProps) => {
+const Modal = ({ items, isOpen, onClose }: ModalProps) => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const { items, clearCart } = useCartStore();
+  const { clearCart } = useCartStore();
 
   const handleClose = () => {
     if (window.scrollTo) {

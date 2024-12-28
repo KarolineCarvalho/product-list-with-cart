@@ -1,7 +1,7 @@
 import styles from "./cartStyles.module.css";
 import ListItem from "../ListItem";
 import SvgComponent from "../SvgComponent";
-import { ListItemProps, useCartStore } from "../../store";
+import { ListItemProps } from "../../store";
 import ButtonComponent from "../ButtonComponent";
 
 export const calculateTotalPrice = (items: ListItemProps[]) => {
@@ -28,9 +28,12 @@ export function OrderTotal({ items }: { items: ListItemProps[] }) {
   );
 }
 
-function Card({ openModal }: { openModal: () => void }) {
-  const { items } = useCartStore();
+interface CartProps {
+  items: ListItemProps[];
+  openModal: () => void;
+}
 
+function Cart({ items, openModal }: CartProps) {
   return (
     <div className={styles.cart}>
       <h2 className={styles.cart__title}>
@@ -81,4 +84,4 @@ function Card({ openModal }: { openModal: () => void }) {
   );
 }
 
-export default Card;
+export default Cart;

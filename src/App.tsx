@@ -1,12 +1,14 @@
-import Card from "./components/Card";
 import Cart from "./components/Cart";
 import styles from "./styles/App.module.css";
-import { data } from "./data/data";
+import { data } from "./data";
 import { useState } from "react";
 import Modal from "./components/Modal/Modal";
+import { useCartStore } from "./store";
+import Card from "./components/Card";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { items } = useCartStore();
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -29,8 +31,8 @@ function App() {
           })}
         </div>
       </div>
-      <Cart openModal={openModal} />
-      <Modal isOpen={isModalOpen} onClose={closeModal} />
+      <Cart items={items} openModal={openModal} />
+      <Modal items={items} isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 }

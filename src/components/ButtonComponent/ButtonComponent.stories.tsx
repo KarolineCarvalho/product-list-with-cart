@@ -14,20 +14,20 @@ export const SetQuantity: Story = {
   args: {
     buttonText: "4",
     isChangeQty: true,
-    type: "default",
+    variant: "default",
   },
 };
 
 export const AddToCart: Story = {
   args: {
     buttonText: "Add to Cart",
-    type: "default",
+    variant: "default",
   },
 };
 
 export const Confirm: Story = {
   args: {
     buttonText: "Confirm Order",
-    type: "confirm",
+    variant: "confirm",
   },
 };
